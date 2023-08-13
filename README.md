@@ -38,7 +38,7 @@ Content-Type:application/json
 ## Unit test 
 
   * Under unit_test.py file sample test cases are given as unit tests.
-  * Clone the repo in local machine and run ```sh py unit_test.py``` in the folder.
+  * Clone the repo in local machine and run ```py unit_test.py``` in the folder.
     
 ## Deployment Proposal
 
@@ -59,7 +59,12 @@ Content-Type:application/json
   * MarsRover Class
       * turn_left function: In this method 90 degree turn will result in the following changes, N->W, W->S, S->E, E->N. These rotations forms a circle in the array ['N','E','S','W']. The resulting direction array index can be calculated as (current_idx + 3) % 4 
       * turn_right function: In this method, N->E, E->S, S->W, W->N. These rotations also forms a circle in the array ['N','E','S','W']. The resulting direction array index can be calculated as (current_idx + 1) % 4
-      * move_forward function: This method alters the position based on the direction. N->(x,y+1); E->(x+1,y); S->(x,y-1); W->(x-1,y)
+      * move_forward function: This method alters the position based on the direction. N->(x,y+1); E->(x+1,y); S->(x,y-1); W->(x-1,y). This function ensures the value does not exceed outside the plateau, if it exceeds the value won't change. 
   * Simulate_rover
       * This function updates the upper right dimensional value.
-      * 
+      * Splits the rover position and directional instructions.
+      * Calls the methods from MarsRover class based on the instruction present.
+      * Second rover will start move after the first rover movement completes.
+  * Unit test file
+      * This files contains unit test for four different methods. Run the file during CI/CD pipeline to ensure the code working condition before deployment. Test cases can also be created in Postman and used to test the code before deployment. A link between postman and jenkins can be estalblished.
+  * requirement.txt and setup.py are not added in this code because they are not needed for this lambda. It only imports json package.

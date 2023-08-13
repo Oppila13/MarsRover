@@ -3,10 +3,12 @@ import json
 class MarsRover:
     DIRECTIONS = ['N', 'E', 'S', 'W']
 
-    def __init__(self, x, y, direction):
+    def __init__(self, x, y, direction, plateau_x, plateau_y):
         self.x = x
         self.y = y
         self.direction = direction
+        self.plateau_x = plateau_x
+        self.plateau_y = plateau_y
 
     def turn_left(self):
         current_idx = self.DIRECTIONS.index(self.direction)
@@ -17,14 +19,23 @@ class MarsRover:
         self.direction = self.DIRECTIONS[(current_idx + 1) % 4]
 
     def move_forward(self):
+        x_change = 0
+        y_change = 0
         if self.direction == 'N':
-            self.y += 1
+            y_change = 1
         elif self.direction == 'S':
-            self.y -= 1
+            y_change = -1
         elif self.direction == 'E':
-            self.x += 1
+            x_change = 1
         elif self.direction == 'W':
-            self.x -= 1
+            x_change = -1
+        
+        new_x = self.x + x_change
+        new_y = self.y + y_change
+        
+        if 0 <= new_x <= self.plateau_x and 0 <= new_y <= self.plateau_y:
+            self.x = new_x
+            self.y = new_y
 
 
 def simulate_rover(upperRight_values, rover_data):
@@ -35,7 +46,7 @@ def simulate_rover(upperRight_values, rover_data):
         x, y, direction = rover_data[i].split()
         instructions = rover_data[i + 1]
 
-        rover = MarsRover(int(x), int(y), direction)
+        rover = MarsRover(int(x), int(y), direction, plateau_x, plateau_y)
         for instruction in instructions:
             if instruction == 'L':
                 rover.turn_left()

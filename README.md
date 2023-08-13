@@ -67,4 +67,4 @@ Content-Type:application/json
       * Second rover will start move after the first rover movement completes.
   * Unit test file
       * This files contains unit test for four different methods. Run the file during CI/CD pipeline to ensure the code working condition before deployment. Test cases can also be created in Postman and used to test the code before deployment. A link between postman and jenkins can be estalblished.
-  * requirement.txt and setup.py are not added in this code because they are not needed for this lambda. It only imports json package.
+  * requirements.txt and setup.py are not added in this code because they are not needed for this lambda. It only imports json package.

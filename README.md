@@ -10,7 +10,7 @@ The code is deployed in AWS APIGateway publicly. Use the endpoint and input deta
 Content-Type:application/json
 ```
 
-   * Sample Input:
+   * Sample Input to add in body:
 ```sh
 {
   "upperRight": "5 5",

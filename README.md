@@ -59,3 +59,7 @@ Content-Type:application/json
   * MarsRover Class
       * turn_left function: In this method 90 degree turn will result in the following changes, N->W, W->S, S->E, E->N. These rotations forms a circle in the array ['N','E','S','W']. The resulting direction array index can be calculated as (current_idx + 3) % 4 
       * turn_right function: In this method, N->E, E->S, S->W, W->N. These rotations also forms a circle in the array ['N','E','S','W']. The resulting direction array index can be calculated as (current_idx + 1) % 4
+      * move_forward function: This method alters the position based on the direction. N->(x,y+1); E->(x+1,y); S->(x,y-1); W->(x-1,y)
+  * Simulate_rover
+      * This function updates the upper right dimensional value.
+      * 

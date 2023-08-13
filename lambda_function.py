@@ -33,6 +33,7 @@ class MarsRover:
         new_x = self.x + x_change
         new_y = self.y + y_change
         
+        # Checks whether the rover is out of bounds
         if 0 <= new_x <= self.plateau_x and 0 <= new_y <= self.plateau_y:
             self.x = new_x
             self.y = new_y
